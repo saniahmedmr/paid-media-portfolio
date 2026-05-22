@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO Pro Shopify App — Google Ads | Sani Ahmed</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0f14;color:#e2e8f0;}
+  .top-nav{background:#0d1117;border-bottom:1px solid #1e293b;padding:14px 40px;display:flex;align-items:center;gap:16px;}
+  .top-nav a{color:#64748b;text-decoration:none;font-size:13px;}
+  .top-nav span{color:#374151;}
+  .hero{background:linear-gradient(135deg,#1a1f2e,#0d1117);padding:56px 40px 48px;border-bottom:1px solid #1e293b;}
+  .hero-inner{max-width:1100px;margin:0 auto;}
+  .badge{display:inline-flex;gap:8px;align-items:center;background:#14532d22;border:1px solid #16a34a;color:#4ade80;padding:5px 14px;border-radius:20px;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;}
+  h1{font-size:clamp(22px,4vw,40px);font-weight:700;color:#f1f5f9;margin-bottom:10px;}
+  .hero-sub{color:#64748b;font-size:15px;margin-bottom:20px;max-width:700px;line-height:1.7;}
+  .ltv-callout{background:#1e293b;border:1px solid #334155;border-left:3px solid #4ade80;border-radius:10px;padding:16px 20px;margin-bottom:28px;max-width:720px;}
+  .ltv-callout p{color:#cbd5e1;font-size:14px;line-height:1.6;}
+  .ltv-callout strong{color:#4ade80;}
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;max-width:1000px;}
+  .kpi{background:#111827;border:1px solid #1e293b;border-radius:12px;padding:18px;}
+  .kpi-val{font-size:22px;font-weight:700;color:#38bdf8;}
+  .kpi-lbl{font-size:11px;color:#64748b;margin-top:4px;}
+  .section{max-width:1100px;margin:0 auto;padding:48px 40px;}
+  h2{font-size:18px;font-weight:600;color:#f1f5f9;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #1e293b;}
+  .charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-bottom:36px;}
+  .chart-card{background:#111827;border:1px solid #1e293b;border-radius:14px;padding:22px;}
+  .chart-title{font-size:13px;font-weight:600;color:#94a3b8;margin-bottom:18px;}
+  .chart-wrap{position:relative;height:240px;}
+  .insight-box{background:#0f172a;border:1px solid #1e293b;border-left:3px solid #4ade80;border-radius:10px;padding:14px 18px;margin-top:20px;}
+  .insight-box p{font-size:13px;color:#94a3b8;line-height:1.7;}
+  .insight-box strong{color:#e2e8f0;}
+  .campaign-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:32px;}
+  .camp-card{background:#111827;border:1px solid #1e293b;border-radius:14px;padding:20px;}
+  .camp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+  .camp-name{font-size:14px;font-weight:600;color:#f1f5f9;}
+  .camp-tag{font-size:11px;padding:3px 10px;border-radius:20px;}
+  .tag-best{background:#14532d33;color:#4ade80;border:1px solid #16a34a;}
+  .tag-warn{background:#78350f33;color:#fbbf24;border:1px solid #d97706;}
+  .tag-bad{background:#7f1d1d33;color:#f87171;border:1px solid #dc2626;}
+  .camp-stat{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid #1e293b;}
+  .camp-stat:last-child{border:none;}
+  .camp-stat-lbl{color:#64748b;}
+  .camp-stat-val{color:#e2e8f0;font-weight:500;}
+  .strategy-box{background:#111827;border:1px solid #1e293b;border-radius:14px;padding:24px;margin-bottom:32px;}
+  .strategy-title{font-size:14px;font-weight:600;color:#4ade80;margin-bottom:16px;}
+  .strategy-item{display:flex;gap:12px;margin-bottom:14px;font-size:13px;line-height:1.6;}
+  .strategy-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+  .strategy-text{color:#94a3b8;}
+  .strategy-text strong{color:#e2e8f0;}
+  footer{text-align:center;padding:40px;color:#374151;font-size:13px;border-top:1px solid #1e293b;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">← Portfolio</a>
+  <span>/</span>
+  <span style="color:#e2e8f0;">GEO Pro — Shopify App</span>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="badge">📍 Google Ads — Subscription SaaS / Shopify App</div>
+    <h1>GEO Pro — Shopify App Store</h1>
+    <p class="hero-sub">Google Search Ads management for GEO Pro, a geolocation app on the Shopify App Store. $131K in ad spend managed over 22 months. Full account audit and optimization report delivered, identifying $5–8K in actionable waste and a clear path to significantly improved ROAS.</p>
+    <div class="ltv-callout">
+      <p><strong>ROAS interpretation note:</strong> This is a subscription business. Recent months show depressed reported ROAS because customers acquired in Jan–Apr 2026 have only been subscribed 1–4 months. Their lifetime subscription revenue has not yet been reported. Best campaign (Exact – Plus &amp; Advanced) shows 228% ROAS — the subscription lag is temporary and structural fixes are already identified.</p>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-val">$131,027</div><div class="kpi-lbl">Total Ad Spend Managed</div></div>
+      <div class="kpi"><div class="kpi-val">938</div><div class="kpi-lbl">Total Customers Acquired</div></div>
+      <div class="kpi"><div class="kpi-val">228%</div><div class="kpi-lbl">Best Campaign ROAS</div></div>
+      <div class="kpi"><div class="kpi-val">101%</div><div class="kpi-lbl">Blended ROAS</div></div>
+      <div class="kpi"><div class="kpi-val">6</div><div class="kpi-lbl">Campaigns Audited</div></div>
+      <div class="kpi"><div class="kpi-val">$5–8K</div><div class="kpi-lbl">Waste Identified</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Campaign-by-Campaign Breakdown</h2>
+  <div class="campaign-grid">
+
+    <div class="camp-card">
+      <div class="camp-header">
+        <div class="camp-name">Exact – Plus &amp; Advanced</div>
+        <span class="camp-tag tag-best">Best Campaign</span>
+      </div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Spend</span><span class="camp-stat-val">$20,672</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">ROAS</span><span class="camp-stat-val">228%</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Customers</span><span class="camp-stat-val">192</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Budget</span><span class="camp-stat-val">$100/day</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Action</span><span class="camp-stat-val" style="color:#4ade80;">Increase budget →</span></div>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-header">
+        <div class="camp-name">Exact – Shopify &amp; Basic</div>
+        <span class="camp-tag tag-warn">Mixed — Fix Needed</span>
+      </div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Spend</span><span class="camp-stat-val">$83,080</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">ROAS</span><span class="camp-stat-val">78% (blended)</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Customers</span><span class="camp-stat-val">554</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Grow users</span><span class="camp-stat-val" style="color:#4ade80;">188% ROAS ✓</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Basic users</span><span class="camp-stat-val" style="color:#f59e0b;">38% ROAS ⚠</span></div>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-header">
+        <div class="camp-name">Exact – All Plans (Not Logged In)</div>
+        <span class="camp-tag tag-bad">Under-Performing</span>
+      </div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Spend</span><span class="camp-stat-val">$19,646</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">ROAS</span><span class="camp-stat-val">54%</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Customers</span><span class="camp-stat-val">95</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Action</span><span class="camp-stat-val" style="color:#f59e0b;">Restructure →</span></div>
+    </div>
+
+    <div class="camp-card">
+      <div class="camp-header">
+        <div class="camp-name">Exact – Trial &amp; Retail</div>
+        <span class="camp-tag tag-bad">Pause Immediately</span>
+      </div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Spend</span><span class="camp-stat-val">$2,258</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">ROAS</span><span class="camp-stat-val" style="color:#f87171;">15%</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Customers</span><span class="camp-stat-val">6</span></div>
+      <div class="camp-stat"><span class="camp-stat-lbl">Action</span><span class="camp-stat-val" style="color:#f87171;">Pause → redirect →</span></div>
+    </div>
+
+  </div>
+
+  <h2>Performance Charts</h2>
+  <div class="charts-grid">
+
+    <div class="chart-card">
+      <div class="chart-title">ROAS by Campaign (%)</div>
+      <div class="chart-wrap"><canvas id="roasChart"></canvas></div>
+      <div class="insight-box"><p><strong>Wide ROAS variance across campaigns</strong> (15% to 228%) shows the account has been running on autopilot without regular bid and allocation optimization. Shifting budget from poor performers to the 228% ROAS campaign alone would dramatically improve blended results.</p></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Spend Allocation vs. ROAS Contribution</div>
+      <div class="chart-wrap"><canvas id="allocationChart"></canvas></div>
+      <div class="insight-box"><p><strong>Budget misalignment is the core problem:</strong> The best campaign ($20K) is getting 16% of total budget while generating 228% ROAS. The worst campaign ($2.3K, 15% ROAS) should be immediately paused and its budget redirected.</p></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Cost Per Customer by Campaign ($)</div>
+      <div class="chart-wrap"><canvas id="cpcChart"></canvas></div>
+      <div class="insight-box"><p><strong>Best CAC: $107.67</strong> (Plus &amp; Advanced campaign). For a Shopify app with monthly recurring subscriptions, acquiring a merchant at $108 is highly profitable — typical Shopify app LTV for a geolocation tool runs $200–500+ over the subscription lifetime.</p></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Optimized vs. Current ROAS Projection</div>
+      <div class="chart-wrap"><canvas id="projChart"></canvas></div>
+      <div class="insight-box"><p><strong>Projected post-optimization:</strong> Pausing Trial &amp; Retail (15% ROAS), restructuring Basic targeting, and scaling Plus &amp; Advanced to $300/day would realistically improve blended ROAS from 101% to 150%+ on the same monthly budget.</p></div>
+    </div>
+
+  </div>
+
+  <h2>Optimization Strategy Delivered</h2>
+  <div class="strategy-box">
+    <div class="strategy-title">Key Recommendations from Audit Report (Prepared by Sani Ahmed, May 2026)</div>
+    <div class="strategy-item"><span class="strategy-icon">✅</span><div class="strategy-text"><strong>Scale Plus &amp; Advanced to $300/day:</strong> 228% ROAS at $100/day is severely under-invested. The US (312% ROAS), Canada (475%), UAE (413%) markets all have headroom before saturation.</div></div>
+    <div class="strategy-item"><span class="strategy-icon">🚫</span><div class="strategy-text"><strong>Pause Trial &amp; Retail immediately:</strong> $2,258 spent, only 6 customers, 15% ROAS. Every dollar here is better placed in the Plus &amp; Advanced campaign.</div></div>
+    <div class="strategy-item"><span class="strategy-icon">🔧</span><div class="strategy-text"><strong>Segment Shopify &amp; Basic by plan type:</strong> Grow plan users show 188% ROAS; Basic plan users show 38%. Create separate ad groups with separate bids to stop the Basic plan holders from diluting the overall campaign performance.</div></div>
+    <div class="strategy-item"><span class="strategy-icon">🧹</span><div class="strategy-text"><strong>Negate 554 zero-revenue search terms:</strong> The Discover campaign found 554 keywords that received clicks but generated zero revenue. Negating these recovers $3–5K in annual waste.</div></div>
+    <div class="strategy-item"><span class="strategy-icon">📍</span><div class="strategy-text"><strong>Optimize 'geolocation' bid by country:</strong> This single keyword accounts for ~$62K+ in spend across all campaigns. Country-level bid adjustments (reduce India by 40%, increase Canada/UAE) would meaningfully improve overall CPA.</div></div>
+  </div>
+</div>
+
+<footer>
+  Sani Ahmed &nbsp;·&nbsp; <a href="https://www.upwork.com/freelancers/~01133fbe2a71b138a4" style="color:#3b82f6;">Upwork Profile</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/saniolakunle/" style="color:#3b82f6;">LinkedIn</a> &nbsp;·&nbsp; <a href="index.html" style="color:#3b82f6;">← Back to Portfolio</a>
+</footer>
+
+<script>
+const d={plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}},tooltip:{backgroundColor:'#1e293b',titleColor:'#e2e8f0',bodyColor:'#94a3b8'}},scales:{x:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'#1e293b'}},y:{ticks:{color:'#64748b'},grid:{color:'#1e293b'}}}};
+
+const labels=['Plus &\nAdvanced','Shopify &\nBasic','All Plans\n(Not Logged)','Trial &\nRetail'];
+
+new Chart(document.getElementById('roasChart'),{type:'bar',data:{labels,datasets:[{label:'ROAS (%)',data:[228,78,54,15],backgroundColor:['rgba(74,222,128,0.85)','rgba(251,191,36,0.8)','rgba(248,113,113,0.7)','rgba(248,113,113,0.9)'],borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}},scales:{x:d.scales.x,y:{...d.scales.y,ticks:{color:'#64748b',callback:v=>v+'%'}}}}});
+
+new Chart(document.getElementById('allocationChart'),{type:'bar',data:{labels,datasets:[{label:'Spend ($K)',data:[20.7,83.1,19.6,2.3],backgroundColor:'rgba(56,189,248,0.75)',borderRadius:6},{label:'Customers',data:[192,554,95,6],backgroundColor:'rgba(74,222,128,0.75)',borderRadius:6}]},options:{...d}});
+
+new Chart(document.getElementById('cpcChart'),{type:'bar',data:{labels,datasets:[{label:'Cost Per Customer ($)',data:[107.67,149.97,206.80,376.33],backgroundColor:['rgba(74,222,128,0.85)','rgba(251,191,36,0.8)','rgba(248,113,113,0.7)','rgba(248,113,113,0.9)'],borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}},scales:{x:d.scales.x,y:{...d.scales.y,ticks:{color:'#64748b',callback:v=>'$'+v}}}}});
+
+new Chart(document.getElementById('projChart'),{type:'bar',data:{labels:['Current Blended','Post-Optimization\n(Projected)'],datasets:[{label:'Blended ROAS (%)',data:[101,155],backgroundColor:['rgba(56,189,248,0.7)','rgba(74,222,128,0.85)'],borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}},scales:{x:d.scales.x,y:{...d.scales.y,ticks:{color:'#64748b',callback:v=>v+'%'},max:200}}}});
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crisper Kit — Meta Ads Performance | Sani Ahmed</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0f14;color:#e2e8f0;}
+  .top-nav{background:#0d1117;border-bottom:1px solid #1e293b;padding:14px 40px;display:flex;align-items:center;gap:16px;}
+  .top-nav a{color:#64748b;text-decoration:none;font-size:13px;}
+  .top-nav a:hover{color:#e2e8f0;}
+  .top-nav span{color:#374151;}
+  .hero{background:linear-gradient(135deg,#1a1f2e,#0d1117);padding:56px 40px 48px;border-bottom:1px solid #1e293b;}
+  .hero-inner{max-width:1100px;margin:0 auto;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#dc262622;border:1px solid #dc2626;color:#f87171;padding:5px 14px;border-radius:20px;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;}
+  h1{font-size:clamp(24px,4vw,42px);font-weight:700;margin-bottom:10px;color:#f1f5f9;}
+  .hero-sub{color:#64748b;font-size:15px;margin-bottom:32px;max-width:700px;line-height:1.7;}
+  .ltv-callout{background:#1e293b;border:1px solid #334155;border-left:3px solid #f59e0b;border-radius:10px;padding:16px 20px;margin-bottom:32px;max-width:720px;}
+  .ltv-callout p{color:#cbd5e1;font-size:14px;line-height:1.6;}
+  .ltv-callout strong{color:#f59e0b;}
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;max-width:900px;}
+  .kpi{background:#111827;border:1px solid #1e293b;border-radius:12px;padding:20px;}
+  .kpi-val{font-size:26px;font-weight:700;color:#38bdf8;}
+  .kpi-lbl{font-size:12px;color:#64748b;margin-top:4px;}
+  .section{max-width:1100px;margin:0 auto;padding:48px 40px;}
+  h2{font-size:20px;font-weight:600;color:#f1f5f9;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid #1e293b;}
+  .charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;margin-bottom:48px;}
+  .chart-card{background:#111827;border:1px solid #1e293b;border-radius:14px;padding:24px;}
+  .chart-title{font-size:14px;font-weight:600;color:#94a3b8;margin-bottom:20px;}
+  .chart-wrap{position:relative;height:260px;}
+  .insight-box{background:#0f172a;border:1px solid #1e293b;border-left:3px solid #38bdf8;border-radius:10px;padding:16px 20px;margin-top:24px;}
+  .insight-box p{font-size:13px;color:#94a3b8;line-height:1.7;}
+  .insight-box strong{color:#e2e8f0;}
+  .screenshots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:20px;}
+  .ss-card{background:#111827;border:1px solid #1e293b;border-radius:14px;overflow:hidden;}
+  .ss-card img{width:100%;display:block;cursor:zoom-in;}
+  .ss-caption{padding:12px 16px;font-size:12px;color:#64748b;line-height:1.5;}
+  .ss-caption strong{color:#94a3b8;display:block;margin-bottom:3px;}
+  .access-badge{display:inline-block;background:#16a34a22;border:1px solid #16a34a;color:#4ade80;padding:2px 8px;border-radius:20px;font-size:10px;margin-top:4px;}
+  .modal{display:none;position:fixed;inset:0;background:#000000cc;z-index:100;align-items:center;justify-content:center;}
+  .modal.open{display:flex;}
+  .modal img{max-width:90vw;max-height:90vh;border-radius:8px;}
+  footer{text-align:center;padding:40px;color:#374151;font-size:13px;border-top:1px solid #1e293b;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">← Portfolio</a>
+  <span>/</span>
+  <span style="color:#e2e8f0;">Crisper Kit</span>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="badge">🧺 Meta Ads — Subscription E-Commerce</div>
+    <h1>Crisper Kit</h1>
+    <p class="hero-sub">Meal-kit subscription brand running Meta (Facebook & Instagram) campaigns. Full-funnel management: cold traffic prospecting + retargeting. Campaign objective: customer acquisition optimized for subscription LTV.</p>
+    <div class="ltv-callout">
+      <p><strong>Why CPP alone does not tell the full story here:</strong> Crisper Kit is a subscription business. A customer acquired at CA$37 does not generate CA$37 in revenue — they generate it every month for as long as they stay subscribed. Even the cold traffic CA$89 CPP is profitable if the average subscriber stays active for 3+ months. The retargeting CA$9.38 CPP is an exceptionally strong return.</p>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-val">CA$85,186</div><div class="kpi-lbl">Total Ad Spend</div></div>
+      <div class="kpi"><div class="kpi-val">2,263</div><div class="kpi-lbl">Customers Acquired</div></div>
+      <div class="kpi"><div class="kpi-val">CA$166,156</div><div class="kpi-lbl">Revenue Attributed</div></div>
+      <div class="kpi"><div class="kpi-val">1.95x</div><div class="kpi-lbl">Blended ROAS</div></div>
+      <div class="kpi"><div class="kpi-val">CA$37.64</div><div class="kpi-lbl">Avg. CPP (All)</div></div>
+      <div class="kpi"><div class="kpi-val">5.1M</div><div class="kpi-lbl">Impressions</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Campaign Performance Analysis</h2>
+  <div class="charts-grid">
+
+    <div class="chart-card">
+      <div class="chart-title">Cost-Per-Purchase: Retargeting vs. Cold Traffic</div>
+      <div class="chart-wrap"><canvas id="cppChart"></canvas></div>
+      <div class="insight-box">
+        <p><strong>Key insight:</strong> Retargeting converts customers at CA$9.38 — <strong>9.5× cheaper</strong> than cold traffic (CA$89.17). This validates a clear full-funnel structure: cold traffic builds the audience; retargeting converts efficiently. For a subscription business, the CA$9.38 CPP means the campaign pays back in under a month.</p>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Budget Allocation vs. Customers Acquired</div>
+      <div class="chart-wrap"><canvas id="allocationChart"></canvas></div>
+      <div class="insight-box">
+        <p><strong>Key insight:</strong> Cold traffic consumed 84% of spend but generated only 35% of purchases. Retargeting used 16% of budget and delivered 65% of purchases. This is the expected funnel dynamic — and signals clear room to scale retargeting budget for improved overall ROAS.</p>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Spend vs. Revenue by Campaign</div>
+      <div class="chart-wrap"><canvas id="revenueChart"></canvas></div>
+      <div class="insight-box">
+        <p><strong>Key insight:</strong> Retargeting generated CA$111,906 in attributed revenue on CA$13,732 in spend — an 8.1x return. Cold traffic drove CA$54,250 on CA$71,250 spend (0.76x reported ROAS), but this reflects early-subscriber LTV lag; subscribers acquired from cold traffic are still generating monthly recurring revenue.</p>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Funnel Efficiency Comparison</div>
+      <div class="chart-wrap"><canvas id="funnelChart"></canvas></div>
+      <div class="insight-box">
+        <p><strong>Key insight:</strong> Over 5.1 million impressions delivered with an average CPM of CA$16.53. Cold traffic serves as a brand-awareness and audience-building layer, while retargeting closes the purchase. The funnel is working as designed for a subscription acquisition model.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>Account Access & Campaign Screenshots</h2>
+  <div class="screenshots-grid">
+
+    <div class="ss-card">
+      <img src="assets/screenshots/Crisper 2_blurred.png" alt="Crisper Kit Meta Ads Manager — account overview" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Meta Ads Manager — Account Access Confirmation</strong>
+        Account managed under Sani Ahmed. Business Manager access shown. Sensitive account IDs blurred.
+        <span class="access-badge">✓ Access Verified</span>
+      </div>
+    </div>
+
+    <div class="ss-card">
+      <img src="assets/screenshots/Crisper Kit 1.png" alt="Crisper Kit campaigns overview" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Active Campaigns — Cold Traffic &amp; Retargeting Structure</strong>
+        Full-funnel campaign architecture: prospecting (TOFU/MOFU/BOFU) plus retargeting conversion campaigns.
+      </div>
+    </div>
+
+    <div class="ss-card">
+      <img src="assets/screenshots/Crisper 4.png" alt="Crisper Kit retargeting performance" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Retargeting Campaign — CPP &amp; Conversion Performance</strong>
+        Retargeting Conversions campaign showing purchase volume and cost-per-purchase metrics.
+      </div>
+    </div>
+
+    <div class="ss-card">
+      <img src="assets/screenshots/Crisper 5.png" alt="Crisper Kit ad performance detail" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Ad-Level Performance — Spend &amp; Results Breakdown</strong>
+        Individual ad performance showing CTR, CPM, and conversion metrics.
+      </div>
+    </div>
+
+    <div class="ss-card">
+      <img src="assets/screenshots/Crisper kit 3.png" alt="Crisper Kit audience targeting" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Audience &amp; Ad Set Configuration</strong>
+        Ad set targeting structure showing audience definition and budget allocation across the funnel.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="modal" class="modal" onclick="closeModal()">
+  <img id="modalImg" src="" alt="">
+</div>
+
+<footer>
+  Sani Ahmed &nbsp;·&nbsp; <a href="https://www.upwork.com/freelancers/~01133fbe2a71b138a4" style="color:#3b82f6;">Upwork Profile</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/saniolakunle/" style="color:#3b82f6;">LinkedIn</a> &nbsp;·&nbsp; <a href="index.html" style="color:#3b82f6;">← Back to Portfolio</a>
+</footer>
+
+<script>
+const C = {cold:'rgba(59,130,246,0.8)',retarget:'rgba(16,185,129,0.8)',coldBorder:'#3b82f6',retargetBorder:'#10b981'};
+const defaults = {plugins:{legend:{labels:{color:'#94a3b8',font:{size:12}}},tooltip:{backgroundColor:'#1e293b',titleColor:'#e2e8f0',bodyColor:'#94a3b8'}},scales:{x:{ticks:{color:'#64748b'},grid:{color:'#1e293b'}},y:{ticks:{color:'#64748b'},grid:{color:'#1e293b'}}}};
+
+// CPP Chart
+new Chart(document.getElementById('cppChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Cold Traffic', 'Retargeting'],
+    datasets: [{
+      label: 'Cost Per Purchase (CA$)',
+      data: [89.17, 9.38],
+      backgroundColor: [C.cold, C.retarget],
+      borderColor: [C.coldBorder, C.retargetBorder],
+      borderWidth: 1, borderRadius: 6
+    }]
+  },
+  options: {
+    ...defaults,
+    plugins: {...defaults.plugins, legend:{display:false}},
+    scales: {
+      x: {...defaults.scales.x},
+      y: {
+        ...defaults.scales.y,
+        ticks: {color:'#64748b', callback: v => 'CA$'+v}
+      }
+    }
+  }
+});
+
+// Allocation Chart
+new Chart(document.getElementById('allocationChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Cold Traffic', 'Retargeting'],
+    datasets: [
+      {label:'% of Spend', data:[84, 16], backgroundColor:'rgba(59,130,246,0.7)', borderRadius:6},
+      {label:'% of Purchases', data:[35, 65], backgroundColor:'rgba(16,185,129,0.7)', borderRadius:6}
+    ]
+  },
+  options: {
+    ...defaults,
+    scales: {
+      x: {...defaults.scales.x},
+      y: {...defaults.scales.y, max:100, ticks:{color:'#64748b', callback: v => v+'%'}}
+    }
+  }
+});
+
+// Revenue Chart
+new Chart(document.getElementById('revenueChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Cold Traffic', 'Retargeting'],
+    datasets: [
+      {label:'Spend (CA$)', data:[71250, 13732], backgroundColor:'rgba(59,130,246,0.7)', borderRadius:6},
+      {label:'Revenue (CA$)', data:[54250, 111906], backgroundColor:'rgba(16,185,129,0.7)', borderRadius:6}
+    ]
+  },
+  options: {
+    ...defaults,
+    scales: {
+      x: {...defaults.scales.x},
+      y: {...defaults.scales.y, ticks:{color:'#64748b', callback: v => 'CA$'+(v/1000).toFixed(0)+'K'}}
+    }
+  }
+});
+
+// Funnel Chart
+new Chart(document.getElementById('funnelChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Cold Traffic Impressions', 'Retargeting Impressions'],
+    datasets: [{
+      data: [4245502, 843403],
+      backgroundColor: ['rgba(59,130,246,0.75)', 'rgba(16,185,129,0.75)'],
+      borderColor: ['#3b82f6','#10b981'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    plugins: defaults.plugins,
+    cutout: '65%'
+  }
+});
+
+function openModal(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('open');}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+</script>
+</body>
+</html>

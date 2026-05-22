@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pierre Fabre Pharmaceuticals — Multi-Platform Ads | Sani Ahmed</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0f14;color:#e2e8f0;}
+  .top-nav{background:#0d1117;border-bottom:1px solid #1e293b;padding:14px 40px;display:flex;align-items:center;gap:16px;}
+  .top-nav a{color:#64748b;text-decoration:none;font-size:13px;}
+  .top-nav span{color:#374151;}
+  .hero{background:linear-gradient(135deg,#1a1f2e,#0d1117);padding:56px 40px 48px;border-bottom:1px solid #1e293b;}
+  .hero-inner{max-width:1100px;margin:0 auto;}
+  .badge{display:inline-flex;gap:8px;align-items:center;background:#14532d22;border:1px solid #16a34a;color:#4ade80;padding:5px 14px;border-radius:20px;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;}
+  h1{font-size:clamp(22px,4vw,40px);font-weight:700;color:#f1f5f9;margin-bottom:10px;}
+  .hero-sub{color:#64748b;font-size:15px;margin-bottom:32px;max-width:720px;line-height:1.7;}
+  .platform-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
+  .pill{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid;}
+  .pill-meta{background:#1e3a5f22;border-color:#1e40af;color:#60a5fa;}
+  .pill-google{background:#14532d22;border-color:#16a34a;color:#4ade80;}
+  .pill-reddit{background:#7f1d1d22;border-color:#dc2626;color:#f87171;}
+  .pill-ms{background:#312e8122;border-color:#4f46e5;color:#a78bfa;}
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;max-width:1000px;}
+  .kpi{background:#111827;border:1px solid #1e293b;border-radius:12px;padding:18px;}
+  .kpi-val{font-size:22px;font-weight:700;color:#38bdf8;}
+  .kpi-lbl{font-size:11px;color:#64748b;margin-top:4px;}
+  .tabs{max-width:1100px;margin:0 auto;padding:40px 40px 0;}
+  .tab-bar{display:flex;gap:4px;border-bottom:1px solid #1e293b;margin-bottom:0;}
+  .tab-btn{background:none;border:none;color:#64748b;font-size:14px;padding:12px 22px;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.15s;display:flex;align-items:center;gap:8px;}
+  .tab-btn.active{color:#e2e8f0;border-bottom-color:#3b82f6;}
+  .tab-btn:hover{color:#94a3b8;}
+  .tab-content{display:none;max-width:1100px;margin:0 auto;padding:40px;}
+  .tab-content.active{display:block;}
+  .section-title{font-size:18px;font-weight:600;color:#f1f5f9;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #1e293b;}
+  .charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-bottom:36px;}
+  .chart-card{background:#111827;border:1px solid #1e293b;border-radius:14px;padding:22px;}
+  .chart-title{font-size:13px;font-weight:600;color:#94a3b8;margin-bottom:18px;}
+  .chart-wrap{position:relative;height:240px;}
+  .insight-box{background:#0f172a;border:1px solid #1e293b;border-left:3px solid #38bdf8;border-radius:10px;padding:14px 18px;margin-top:20px;}
+  .insight-box p{font-size:13px;color:#94a3b8;line-height:1.7;}
+  .insight-box strong{color:#e2e8f0;}
+  .campaign-table{width:100%;border-collapse:collapse;margin-bottom:32px;font-size:13px;}
+  .campaign-table th{background:#1e293b;color:#64748b;padding:10px 14px;text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;}
+  .campaign-table td{padding:10px 14px;border-bottom:1px solid #1e293b;color:#e2e8f0;}
+  .campaign-table tr:hover td{background:#111827;}
+  .tag-good{background:#14532d33;color:#4ade80;padding:2px 8px;border-radius:4px;font-size:11px;}
+  .tag-ok{background:#78350f33;color:#fbbf24;padding:2px 8px;border-radius:4px;font-size:11px;}
+  .screenshots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:18px;margin-top:32px;}
+  .ss-card{background:#111827;border:1px solid #1e293b;border-radius:14px;overflow:hidden;}
+  .ss-card img{width:100%;display:block;cursor:zoom-in;}
+  .ss-caption{padding:12px 16px;font-size:12px;color:#64748b;}
+  .ss-caption strong{color:#94a3b8;display:block;margin-bottom:3px;}
+  .access-badge{display:inline-block;background:#16a34a22;border:1px solid #16a34a;color:#4ade80;padding:2px 8px;border-radius:20px;font-size:10px;margin-top:4px;}
+  .modal{display:none;position:fixed;inset:0;background:#000000cc;z-index:100;align-items:center;justify-content:center;}
+  .modal.open{display:flex;}
+  .modal img{max-width:90vw;max-height:90vh;border-radius:8px;}
+  footer{text-align:center;padding:40px;color:#374151;font-size:13px;border-top:1px solid #1e293b;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html">← Portfolio</a>
+  <span>/</span>
+  <span style="color:#e2e8f0;">Pierre Fabre Pharmaceuticals</span>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="badge">💊 Pharma — Multi-Platform Campaign</div>
+    <h1>Pierre Fabre Pharmaceuticals</h1>
+    <p class="hero-sub">PTLD (Post-Transplant Lymphoproliferative Disease) awareness and ALLELE clinical trial recruitment campaign. Multi-platform strategy spanning Meta, Google Search, Reddit, and Microsoft Ads.</p>
+    <div class="platform-pills">
+      <span class="pill pill-meta">Meta Ads</span>
+      <span class="pill pill-google">Google Search Ads</span>
+      <span class="pill pill-reddit">Reddit Ads</span>
+      <span class="pill pill-ms">Microsoft Ads</span>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-val">$34.4K</div><div class="kpi-lbl">Total Combined Spend</div></div>
+      <div class="kpi"><div class="kpi-val">5,891</div><div class="kpi-lbl">Google Conversions</div></div>
+      <div class="kpi"><div class="kpi-val">$2.93</div><div class="kpi-lbl">Google Cost/Conv.</div></div>
+      <div class="kpi"><div class="kpi-val">14.46%</div><div class="kpi-lbl">Google Conv. Rate</div></div>
+      <div class="kpi"><div class="kpi-val">2,555</div><div class="kpi-lbl">Meta 90s Engagements</div></div>
+      <div class="kpi"><div class="kpi-val">2,180</div><div class="kpi-lbl">Microsoft Conversions</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="showTab('google')">🟢 Google Ads</button>
+    <button class="tab-btn" onclick="showTab('meta')">🔵 Meta Ads</button>
+    <button class="tab-btn" onclick="showTab('microsoft')">🟣 Microsoft Ads</button>
+    <button class="tab-btn" onclick="showTab('reddit')">🔴 Reddit Ads</button>
+  </div>
+</div>
+
+<!-- GOOGLE ADS TAB -->
+<div id="tab-google" class="tab-content active">
+  <div class="section-title">Google Search Ads — PTLD Awareness &amp; ALLELE Clinical Trial Recruitment</div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-title">Conversions by Campaign</div>
+      <div class="chart-wrap"><canvas id="gConvChart"></canvas></div>
+      <div class="insight-box"><p><strong>Best performer:</strong> "What is PTLD?" generated 3,462 conversions at just <strong>$2.38 cost/conversion</strong> — the highest volume campaign with excellent efficiency.</p></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Cost Per Conversion by Campaign ($)</div>
+      <div class="chart-wrap"><canvas id="gCPAChart"></canvas></div>
+      <div class="insight-box"><p><strong>Best CPA:</strong> Awareness | Search at $2.53, closely followed by "What is PTLD?" at $2.38. ALLELE recruitment campaigns run higher ($9–16) due to specific audience targeting constraints in pharma.</p></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Conversion Rate by Campaign (%)</div>
+      <div class="chart-wrap"><canvas id="gCVRChart"></canvas></div>
+      <div class="insight-box"><p><strong>Outstanding CVR:</strong> "What is PTLD?" runs at 16.05% and Awareness at 15.24% — significantly above the 5-10% benchmark for healthcare search campaigns.</p></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Spend vs. Conversions Overview</div>
+      <div class="chart-wrap"><canvas id="gOverviewChart"></canvas></div>
+      <div class="insight-box"><p><strong>Total account:</strong> $17,250 spend across 973K impressions, 40,751 clicks, 5,891 conversions at a 14.46% conversion rate and $2.93 average CPA.</p></div>
+    </div>
+  </div>
+
+  <table class="campaign-table">
+    <thead><tr><th>Campaign</th><th>Spend ($)</th><th>Clicks</th><th>Impressions</th><th>Conv.</th><th>Conv. Rate</th><th>Cost/Conv.</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>What is PTLD? | Search</td><td>$8,232.98</td><td>21,577</td><td>570,773</td><td>3,462</td><td>16.05%</td><td>$2.38</td><td><span class="tag-good">Best</span></td></tr>
+      <tr><td>Awareness | Search</td><td>$3,027.83</td><td>7,865</td><td>180,327</td><td>1,199</td><td>15.24%</td><td>$2.53</td><td><span class="tag-good">Strong</span></td></tr>
+      <tr><td>Diagnosis and Treatment</td><td>$2,555.31</td><td>7,443</td><td>189,055</td><td>836</td><td>11.23%</td><td>$3.06</td><td><span class="tag-good">Good</span></td></tr>
+      <tr><td>ALLELE – Awareness &amp; Recruitment</td><td>$1,354.78</td><td>1,459</td><td>12,184</td><td>145</td><td>9.94%</td><td>$9.34</td><td><span class="tag-ok">OK</span></td></tr>
+      <tr><td>ALLELE – What's PTLD</td><td>$1,359.86</td><td>1,313</td><td>11,103</td><td>84</td><td>6.40%</td><td>$16.19</td><td><span class="tag-ok">Limited by budget</span></td></tr>
+      <tr><td>ALLELE – Clinical Trials Basics</td><td>$719.50</td><td>1,095</td><td>10,042</td><td>164</td><td>14.98%</td><td>$4.39</td><td><span class="tag-good">Strong CVR</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="screenshots-grid">
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP Google 1_blurred.png" alt="PFP Google Ads account access" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Google Ads Manager — Account Access &amp; Campaign Overview</strong>
+        Account access under Sani Ahmed. All campaign names and performance visible. Sensitive IDs blurred.
+        <span class="access-badge">✓ Access Verified</span>
+      </div>
+    </div>
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP Google Campaigns(2025.06.17-2026.05.19).png" alt="PFP Google campaign performance" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Google Ads — Campaign Performance Dashboard</strong>
+        All 6 campaigns showing impressions, CTR, conversions, and CPA across the reporting period.
+      </div>
+    </div>
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP Google Time_series(2025.06.17-2026.05.19).png" alt="PFP Google time series" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Google Ads — Performance Time Series</strong>
+        Daily/weekly trend showing consistent conversion volume over the campaign period.
+      </div>
+    </div>
+    <div class="ss-card">
+      <img src="assets/screenshots/Devices(2025.06.17-2026.05.19).png" alt="PFP Google device breakdown" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Device Split — 88.7% Mobile Conversions</strong>
+        Mobile drives the overwhelming majority of conversions (88.7%), validating mobile-first ad copy and landing page optimization.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- META ADS TAB -->
+<div id="tab-meta" class="tab-content">
+  <div class="section-title">Meta Ads — ALLELE Clinical Trial Awareness Campaign</div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-title">Campaign Performance at a Glance</div>
+      <div class="chart-wrap"><canvas id="mOverviewChart"></canvas></div>
+      <div class="insight-box"><p><strong>Awareness-optimized campaign:</strong> $5,454 spend across 225,165 impressions with 2,555 NinetySecondsSpent video engagements — meaning users watched 90+ seconds of the PTLD awareness content.</p></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Reach &amp; Engagement Breakdown</div>
+      <div class="chart-wrap"><canvas id="mEngageChart"></canvas></div>
+      <div class="insight-box"><p><strong>Strong engagement quality:</strong> 36.69% link CTR and $2.13 cost per 90-second video view show the awareness content is highly relevant to the target patient/caregiver audience on Meta.</p></div>
+    </div>
+  </div>
+
+  <div class="screenshots-grid">
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP 3.png" alt="PFP Meta campaign" onclick="openModal(this.src)">
+      <div class="ss-caption"><strong>Meta Ads — ALLELE Awareness Campaign Performance</strong>NinetySecondsSpent metric shows deep content engagement — relevant for a pharma awareness objective.</div>
+    </div>
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP 1.png" alt="PFP Meta overview" onclick="openModal(this.src)">
+      <div class="ss-caption"><strong>Campaign Overview — Spend &amp; Reach</strong>$5,454 USD managed spend with 225K+ impressions reaching 31,366 unique accounts.</div>
+    </div>
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP Meta 5 screenshot.jpeg" alt="PFP Meta ad creative" onclick="openModal(this.src)">
+      <div class="ss-caption"><strong>Ad Creative Performance</strong>Individual ad results showing CTR and engagement metrics for ALLELE clinical trial creative.</div>
+    </div>
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP Meta 6.jpeg" alt="PFP Meta ad set" onclick="openModal(this.src)">
+      <div class="ss-caption"><strong>Ad Set &amp; Targeting Configuration</strong>Audience targeting setup for PTLD patient/caregiver segments.</div>
+    </div>
+  </div>
+</div>
+
+<!-- MICROSOFT ADS TAB -->
+<div id="tab-microsoft" class="tab-content">
+  <div class="section-title">Microsoft Ads — PTLD Search Campaign</div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-title">Microsoft Ads — Conversion Performance</div>
+      <div class="chart-wrap"><canvas id="msChart"></canvas></div>
+      <div class="insight-box"><p><strong>2,180 conversions at $4.53 CPA</strong> from $9,930 in Microsoft Ads spend. Bing search audience for pharma/medical queries delivers strong conversion intent at competitive CPAs.</p></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Platform CPA Comparison (PFP All Platforms)</div>
+      <div class="chart-wrap"><canvas id="cpaCompChart"></canvas></div>
+      <div class="insight-box"><p><strong>Google Ads leads on CPA efficiency:</strong> $2.93/conversion vs Microsoft's $4.53. Both are excellent for pharmaceutical awareness — industry benchmarks for this category typically run $15–50+.</p></div>
+    </div>
+  </div>
+
+  <div class="screenshots-grid">
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP Microsoft screenshot_blurred.png" alt="PFP Microsoft Ads access" onclick="openModal(this.src)">
+      <div class="ss-caption">
+        <strong>Microsoft Ads — Account Access Confirmation</strong>
+        Campaign managed under mistersaniahmed@gmail.com account. Email address and account ID blurred for privacy.
+        <span class="access-badge">✓ Access Verified</span>
+      </div>
+    </div>
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP Microsoft screenshot 2.png" alt="PFP Microsoft campaigns" onclick="openModal(this.src)">
+      <div class="ss-caption"><strong>Microsoft Ads — Campaign &amp; Ad Group Performance</strong>Conversion data and CPA metrics across PTLD search campaigns on Bing.</div>
+    </div>
+    <div class="ss-card">
+      <img src="assets/screenshots/PFP Microsoft screenshot 3.png" alt="PFP Microsoft ad performance" onclick="openModal(this.src)">
+      <div class="ss-caption"><strong>Ad-Level Performance Data</strong>Individual ad copy performance showing CTR, impressions, and conversion rates on Microsoft network.</div>
+    </div>
+  </div>
+</div>
+
+<!-- REDDIT ADS TAB -->
+<div id="tab-reddit" class="tab-content">
+  <div class="section-title">Reddit Ads — ALLELE Clinical Trial Awareness</div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-title">Reddit Campaign Performance</div>
+      <div class="chart-wrap"><canvas id="rChart"></canvas></div>
+      <div class="insight-box"><p><strong>Niche audience targeting:</strong> Reddit allows targeting specific medical/research subreddits relevant to transplant patients and caregivers. 90,143 impressions and 522 clicks at $3.38 CPC on a niche pharma audience is competitive.</p></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Reddit vs. Other Platforms — Impression Volume</div>
+      <div class="chart-wrap"><canvas id="rCompChart"></canvas></div>
+      <div class="insight-box"><p><strong>Complementary channel:</strong> Reddit contributes 9% of total impressions at just 5% of total spend — an efficient awareness channel for reaching targeted patient communities that other platforms may not reach.</p></div>
+    </div>
+  </div>
+
+  <div class="screenshots-grid">
+    <div class="ss-card">
+      <img src="assets/screenshots/Reddit PFP Screenshots.png" alt="PFP Reddit Ads dashboard" onclick="openModal(this.src)">
+      <div class="ss-caption"><strong>Reddit Ads Manager — ALLELE Campaign Dashboard</strong>Campaign performance showing impressions, clicks, spend, and audience engagement metrics across two campaign runs.</div>
+    </div>
+  </div>
+</div>
+
+<div id="modal" class="modal" onclick="closeModal()">
+  <img id="modalImg" src="" alt="">
+</div>
+
+<footer>
+  Sani Ahmed &nbsp;·&nbsp; <a href="https://www.upwork.com/freelancers/~01133fbe2a71b138a4" style="color:#3b82f6;">Upwork Profile</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/saniolakunle/" style="color:#3b82f6;">LinkedIn</a> &nbsp;·&nbsp; <a href="index.html" style="color:#3b82f6;">← Back to Portfolio</a>
+</footer>
+
+<script>
+const d={plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}},tooltip:{backgroundColor:'#1e293b',titleColor:'#e2e8f0',bodyColor:'#94a3b8'}},scales:{x:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#1e293b'}},y:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#1e293b'}}}};
+
+// Google Conversions
+new Chart(document.getElementById('gConvChart'),{type:'bar',data:{labels:['PTLD?','Awareness','Diagnosis','ALLELE-Recruit','ALLELE-PTLD','ALLELE-Trials'],datasets:[{label:'Conversions',data:[3462,1199,836,145,84,164],backgroundColor:'rgba(74,222,128,0.75)',borderColor:'#4ade80',borderWidth:1,borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}}}});
+
+// Google CPA
+new Chart(document.getElementById('gCPAChart'),{type:'bar',data:{labels:['PTLD?','Awareness','Diagnosis','ALLELE-Recruit','ALLELE-PTLD','ALLELE-Trials'],datasets:[{label:'CPA ($)',data:[2.38,2.53,3.06,9.34,16.19,4.39],backgroundColor:'rgba(56,189,248,0.75)',borderColor:'#38bdf8',borderWidth:1,borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}},scales:{x:d.scales.x,y:{...d.scales.y,ticks:{color:'#64748b',callback:v=>'$'+v}}}}});
+
+// Google CVR
+new Chart(document.getElementById('gCVRChart'),{type:'bar',data:{labels:['PTLD?','Awareness','Diagnosis','ALLELE-Recruit','ALLELE-PTLD','ALLELE-Trials'],datasets:[{label:'Conv. Rate',data:[16.05,15.24,11.23,9.94,6.40,14.98],backgroundColor:'rgba(167,139,250,0.75)',borderColor:'#a78bfa',borderWidth:1,borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}},scales:{x:d.scales.x,y:{...d.scales.y,ticks:{color:'#64748b',callback:v=>v+'%'}}}}});
+
+// Google Overview
+new Chart(document.getElementById('gOverviewChart'),{type:'doughnut',data:{labels:['PTLD? | Search','Awareness','Diagnosis','ALLELE Campaigns'],datasets:[{data:[8233,3028,2555,3434],backgroundColor:['rgba(74,222,128,0.8)','rgba(56,189,248,0.8)','rgba(167,139,250,0.8)','rgba(251,191,36,0.8)'],borderWidth:1}]},options:{plugins:d.plugins,cutout:'60%'}});
+
+// Meta Overview
+new Chart(document.getElementById('mOverviewChart'),{type:'bar',data:{labels:['Spend ($)','Impressions (÷100)','90s Engagements'],datasets:[{label:'Meta ALLELE Campaign',data:[5454,2252,2555],backgroundColor:['rgba(96,165,250,0.8)','rgba(56,189,248,0.6)','rgba(74,222,128,0.8)'],borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}}}});
+
+// Meta Engagement
+new Chart(document.getElementById('mEngageChart'),{type:'doughnut',data:{labels:['Landing Page Views','Other Clicks','Unique Reach (÷10)'],datasets:[{data:[18316,64290,3137],backgroundColor:['rgba(96,165,250,0.8)','rgba(56,189,248,0.6)','rgba(167,139,250,0.7)'],borderWidth:1}]},options:{plugins:d.plugins,cutout:'60%'}});
+
+// Microsoft
+new Chart(document.getElementById('msChart'),{type:'bar',data:{labels:['Total Spend','Conversions (×5)','CPA (×100)'],datasets:[{label:'Microsoft Ads',data:[9930,10900,453],backgroundColor:['rgba(167,139,250,0.8)','rgba(74,222,128,0.8)','rgba(251,191,36,0.8)'],borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}}}});
+
+// CPA Compare
+new Chart(document.getElementById('cpaCompChart'),{type:'bar',data:{labels:['Google Ads','Microsoft Ads'],datasets:[{label:'CPA ($)',data:[2.93,4.53],backgroundColor:['rgba(74,222,128,0.8)','rgba(167,139,250,0.8)'],borderColor:['#4ade80','#a78bfa'],borderWidth:1,borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}},scales:{x:d.scales.x,y:{...d.scales.y,ticks:{color:'#64748b',callback:v=>'$'+v},max:6}}}});
+
+// Reddit
+new Chart(document.getElementById('rChart'),{type:'bar',data:{labels:['Impressions (÷100)','Clicks (×10)','Spend ($)'],datasets:[{label:'Reddit ALLELE',data:[901,5220,1741],backgroundColor:['rgba(248,113,113,0.8)','rgba(251,191,36,0.8)','rgba(56,189,248,0.8)'],borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}}}});
+
+// Reddit vs platforms impressions
+new Chart(document.getElementById('rCompChart'),{type:'doughnut',data:{labels:['Google (973K)','Meta (225K)','Microsoft','Reddit (90K)'],datasets:[{data:[973479,225165,150000,90143],backgroundColor:['rgba(74,222,128,0.8)','rgba(96,165,250,0.8)','rgba(167,139,250,0.7)','rgba(248,113,113,0.8)'],borderWidth:1}]},options:{plugins:d.plugins,cutout:'55%'}});
+
+function showTab(name){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  event.target.classList.add('active');
+}
+function openModal(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('open');}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sani Ahmed — Paid Media Portfolio</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0f14;color:#e2e8f0;min-height:100vh;}
+  .hero{background:linear-gradient(135deg,#1a1f2e 0%,#0d1117 100%);padding:80px 40px 60px;text-align:center;border-bottom:1px solid #1e293b;}
+  .badge{display:inline-block;background:#1e40af22;border:1px solid #3b82f6;color:#60a5fa;padding:6px 16px;border-radius:20px;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;}
+  h1{font-size:clamp(28px,5vw,52px);font-weight:700;margin-bottom:12px;background:linear-gradient(135deg,#e2e8f0,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .subtitle{color:#64748b;font-size:17px;max-width:600px;margin:0 auto 40px;line-height:1.6;}
+  .stats-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:0;}
+  .stat{text-align:center;}
+  .stat-num{font-size:28px;font-weight:700;color:#38bdf8;}
+  .stat-label{font-size:12px;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;padding:60px 40px;max-width:1200px;margin:0 auto;}
+  .card{background:#111827;border:1px solid #1e293b;border-radius:16px;padding:32px;text-decoration:none;color:inherit;transition:all 0.2s;display:block;}
+  .card:hover{border-color:#3b82f6;transform:translateY(-3px);box-shadow:0 8px 32px #3b82f620;}
+  .card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;}
+  .card-platform{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#64748b;margin-bottom:8px;}
+  .card-title{font-size:20px;font-weight:600;margin-bottom:10px;color:#f1f5f9;}
+  .card-desc{color:#64748b;font-size:14px;line-height:1.6;margin-bottom:20px;}
+  .card-metrics{display:flex;gap:20px;flex-wrap:wrap;}
+  .metric{background:#1e293b;padding:8px 14px;border-radius:8px;}
+  .metric-val{font-size:15px;font-weight:600;color:#38bdf8;}
+  .metric-lbl{font-size:11px;color:#64748b;margin-top:1px;}
+  .pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;margin-right:6px;}
+  .pill-meta{background:#1e3a5f22;border:1px solid #1e40af;color:#60a5fa;}
+  .pill-google{background:#14532d22;border:1px solid #16a34a;color:#4ade80;}
+  .pill-reddit{background:#7f1d1d22;border:1px solid #dc2626;color:#f87171;}
+  .pill-ms{background:#312e8122;border:1px solid #4f46e5;color:#a78bfa;}
+  footer{text-align:center;padding:40px;color:#374151;font-size:13px;border-top:1px solid #1e293b;}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="badge">Paid Media Portfolio</div>
+  <h1>Sani Ahmed</h1>
+  <p class="subtitle">Performance data and campaign results across 6 managed ad accounts — Meta, Google, Reddit, and Microsoft Ads.</p>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">$260K+</div><div class="stat-label">Total Ad Spend Managed</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Active Accounts</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Ad Platforms</div></div>
+    <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Leads & Conversions</div></div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <a href="crisper-kit.html" class="card">
+    <div class="card-icon" style="background:#7f1d1d22;">🧺</div>
+    <div class="card-platform"><span class="pill pill-meta">Meta Ads</span></div>
+    <div class="card-title">Crisper Kit</div>
+    <div class="card-desc">Subscription meal-kit brand. LTV-focused acquisition strategy — retargeting achieved CA$9.38 cost-per-customer on a subscription product.</div>
+    <div class="card-metrics">
+      <div class="metric"><div class="metric-val">CA$85K</div><div class="metric-lbl">Total Spend</div></div>
+      <div class="metric"><div class="metric-val">2,263</div><div class="metric-lbl">Customers Acquired</div></div>
+      <div class="metric"><div class="metric-val">CA$9.38</div><div class="metric-lbl">Best CPP (Retarg.)</div></div>
+    </div>
+  </a>
+
+  <a href="pfp.html" class="card">
+    <div class="card-icon" style="background:#14532d22;">💊</div>
+    <div class="card-platform">
+      <span class="pill pill-meta">Meta</span>
+      <span class="pill pill-google">Google</span>
+      <span class="pill pill-reddit">Reddit</span>
+      <span class="pill pill-ms">Microsoft</span>
+    </div>
+    <div class="card-title">Pierre Fabre Pharmaceuticals</div>
+    <div class="card-desc">Multi-platform pharma campaign. Search, social, and display across 4 platforms for PTLD awareness and clinical trial recruitment.</div>
+    <div class="card-metrics">
+      <div class="metric"><div class="metric-val">$34K+</div><div class="metric-lbl">Combined Spend</div></div>
+      <div class="metric"><div class="metric-val">$2.93</div><div class="metric-lbl">Google Cost/Conv.</div></div>
+      <div class="metric"><div class="metric-val">14.46%</div><div class="metric-lbl">Google Conv. Rate</div></div>
+    </div>
+  </a>
+
+  <a href="reading-foundation.html" class="card">
+    <div class="card-icon" style="background:#1e3a5f22;">📚</div>
+    <div class="card-platform"><span class="pill pill-meta">Meta Ads</span></div>
+    <div class="card-title">The Reading Foundation 2.0</div>
+    <div class="card-desc">Non-profit lead generation across Canada and Los Angeles. Dual-market campaign with consistent weekly performance.</div>
+    <div class="card-metrics">
+      <div class="metric"><div class="metric-val">CA$17K</div><div class="metric-lbl">Total Spend</div></div>
+      <div class="metric"><div class="metric-val">156</div><div class="metric-lbl">Leads Generated</div></div>
+      <div class="metric"><div class="metric-val">CA$84</div><div class="metric-lbl">CPL (LA Market)</div></div>
+    </div>
+  </a>
+
+  <a href="stevie-fever.html" class="card">
+    <div class="card-icon" style="background:#4a044e22;">💜</div>
+    <div class="card-platform"><span class="pill pill-meta">Meta Ads</span></div>
+    <div class="card-title">Stevie Fever For ALS Foundation</div>
+    <div class="card-desc">ALS charity lead generation. Achieved CA$0.81 cost-per-lead — an exceptional CPL for a non-profit awareness campaign.</div>
+    <div class="card-metrics">
+      <div class="metric"><div class="metric-val">CA$1,335</div><div class="metric-lbl">Total Spend</div></div>
+      <div class="metric"><div class="metric-val">1,649</div><div class="metric-lbl">Leads Generated</div></div>
+      <div class="metric"><div class="metric-val">CA$0.81</div><div class="metric-lbl">Cost Per Lead</div></div>
+    </div>
+  </a>
+
+  <a href="geo-pro.html" class="card">
+    <div class="card-icon" style="background:#14532d22;">📍</div>
+    <div class="card-platform"><span class="pill pill-google">Google Ads</span></div>
+    <div class="card-title">GEO Pro — Shopify App</div>
+    <div class="card-desc">Google Search Ads for a Shopify geolocation app. $131K managed spend; best campaign at 228% ROAS targeting premium Shopify plan holders.</div>
+    <div class="card-metrics">
+      <div class="metric"><div class="metric-val">$131K</div><div class="metric-lbl">Total Spend</div></div>
+      <div class="metric"><div class="metric-val">938</div><div class="metric-lbl">Customers Acquired</div></div>
+      <div class="metric"><div class="metric-val">228%</div><div class="metric-lbl">Best ROAS</div></div>
+    </div>
+  </a>
+
+  <a href="canoe-therapy.html" class="card">
+    <div class="card-icon" style="background:#7f1d1d22;">🛶</div>
+    <div class="card-platform"><span class="pill pill-reddit">Reddit Ads</span></div>
+    <div class="card-title">Canoe Therapy</div>
+    <div class="card-desc">Mental health therapy brand. Targeted Reddit campaign driving awareness with strong impression volume and cost-efficient traffic.</div>
+    <div class="card-metrics">
+      <div class="metric"><div class="metric-val">CA$887</div><div class="metric-lbl">Total Spend</div></div>
+      <div class="metric"><div class="metric-val">75,130</div><div class="metric-lbl">Impressions</div></div>
+      <div class="metric"><div class="metric-val">CA$2.88</div><div class="metric-lbl">CPC</div></div>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  Sani Ahmed &nbsp;·&nbsp; Upwork: <a href="https://www.upwork.com/freelancers/~01133fbe2a71b138a4" style="color:#3b82f6;">upwork.com/freelancers/~01133fbe2a71b138a4</a> &nbsp;·&nbsp; LinkedIn: <a href="https://www.linkedin.com/in/saniolakunle/" style="color:#3b82f6;">linkedin.com/in/saniolakunle</a>
+</footer>
+</body>
+</html>
