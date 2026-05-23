@@ -55,10 +55,10 @@
     <h1>The Reading Foundation 2.0</h1>
     <p class="hero-sub">Non-profit organization focused on literacy and education. Meta Ads campaign running dual-market lead generation across Los Angeles (LA) and Canada (CA). Consistent weekly delivery with separate targeting and budgets per market.</p>
     <div class="kpi-row">
-      <div class="kpi"><div class="kpi-val">CA$17,076</div><div class="kpi-lbl">Total Spend</div></div>
+      <div class="kpi"><div class="kpi-val">$17,076</div><div class="kpi-lbl">Total Spend</div></div>
       <div class="kpi"><div class="kpi-val">156</div><div class="kpi-lbl">Leads Generated</div></div>
-      <div class="kpi"><div class="kpi-val">CA$84.45</div><div class="kpi-lbl">CPL — LA Market</div></div>
-      <div class="kpi"><div class="kpi-val">CA$114.72</div><div class="kpi-lbl">CPL — CA Market</div></div>
+      <div class="kpi"><div class="kpi-val">$84.45</div><div class="kpi-lbl">CPL — LA Market</div></div>
+      <div class="kpi"><div class="kpi-val">$114.72</div><div class="kpi-lbl">CPL — CA Market</div></div>
       <div class="kpi"><div class="kpi-val">480K+</div><div class="kpi-lbl">Total Impressions</div></div>
       <div class="kpi"><div class="kpi-val">2</div><div class="kpi-lbl">Active Markets</div></div>
     </div>
@@ -72,13 +72,13 @@
     <div class="chart-card">
       <div class="chart-title">Spend vs. Leads by Market</div>
       <div class="chart-wrap"><canvas id="spendLeadsChart"></canvas></div>
-      <div class="insight-box"><p><strong>LA leads with stronger CPL:</strong> The Los Angeles market generated 48 leads at CA$84.45 CPL on CA$4,054 spend. The Canada campaign ran significantly higher budget (CA$12,276) with 107 leads at CA$114.72 CPL — standard for the larger Canadian market scope.</p></div>
+      <div class="insight-box"><p><strong>LA leads with stronger CPL:</strong> The Los Angeles market generated 48 leads at $84.45 CPL on $4,054 spend. The Canada campaign ran significantly higher budget ($12,276) with 107 leads at $114.72 CPL — standard for the larger Canadian market scope.</p></div>
     </div>
 
     <div class="chart-card">
-      <div class="chart-title">Cost Per Lead — LA vs. Canada (CA$)</div>
+      <div class="chart-title">Cost Per Lead — LA vs. Canada ($)</div>
       <div class="chart-wrap"><canvas id="cplChart"></canvas></div>
-      <div class="insight-box"><p><strong>LA market efficiency:</strong> CA$84.45 CPL for a non-profit in a competitive US market is a strong result. Non-profit lead generation benchmarks on Meta typically range CA$60–180 depending on the cause and market.</p></div>
+      <div class="insight-box"><p><strong>LA market efficiency:</strong> $84.45 CPL for a non-profit in a competitive US market is a strong result. Non-profit lead generation benchmarks on Meta typically range $60–180 depending on the cause and market.</p></div>
     </div>
 
     <div class="chart-card">
@@ -116,10 +116,10 @@
     </div>
 
     <div class="ss-card">
-      <img src="assets/screenshots/Reading 3.png" alt="Reading Foundation lead performance" onclick="openModal(this.src)">
+      <img src="assets/screenshots/Reading leads-cpl.png" alt="Reading Foundation CPL trend" onclick="openModal(this.src)">
       <div class="ss-caption">
-        <strong>Lead Generation Results — Weekly Performance</strong>
-        Lead volume and CPL data from both markets, showing consistent weekly performance.
+        <strong>Leads Campaign | CA — Cost Per Lead Trend (Nov–Dec 2025)</strong>
+        $126.25 average CPL from $3,156.24 spend. 7 ad sets, 46 ads. Graph shows CPL declining as the campaign optimized — from ~$400 at launch to under $100 by late December.
       </div>
     </div>
 
@@ -145,9 +145,9 @@
 <script>
 const d={plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}},tooltip:{backgroundColor:'#1e293b',titleColor:'#e2e8f0',bodyColor:'#94a3b8'}},scales:{x:{ticks:{color:'#64748b'},grid:{color:'#1e293b'}},y:{ticks:{color:'#64748b'},grid:{color:'#1e293b'}}}};
 
-new Chart(document.getElementById('spendLeadsChart'),{type:'bar',data:{labels:['LA Market','Canada Market'],datasets:[{label:'Spend (CA$)',data:[4054,12276],backgroundColor:'rgba(96,165,250,0.8)',borderRadius:6},{label:'Leads × 50',data:[2400,5350],backgroundColor:'rgba(74,222,128,0.8)',borderRadius:6}]},options:{...d}});
+new Chart(document.getElementById('spendLeadsChart'),{type:'bar',data:{labels:['LA Market','Canada Market'],datasets:[{label:'Spend ($)',data:[4054,12276],backgroundColor:'rgba(96,165,250,0.8)',borderRadius:6},{label:'Leads × 50',data:[2400,5350],backgroundColor:'rgba(74,222,128,0.8)',borderRadius:6}]},options:{...d}});
 
-new Chart(document.getElementById('cplChart'),{type:'bar',data:{labels:['LA Market','Canada Market'],datasets:[{label:'CPL (CA$)',data:[84.45,114.72],backgroundColor:['rgba(96,165,250,0.8)','rgba(167,139,250,0.8)'],borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}},scales:{x:d.scales.x,y:{...d.scales.y,ticks:{color:'#64748b',callback:v=>'CA$'+v}}}}});
+new Chart(document.getElementById('cplChart'),{type:'bar',data:{labels:['LA Market','Canada Market'],datasets:[{label:'CPL ($)',data:[84.45,114.72],backgroundColor:['rgba(96,165,250,0.8)','rgba(167,139,250,0.8)'],borderRadius:6}]},options:{...d,plugins:{...d.plugins,legend:{display:false}},scales:{x:d.scales.x,y:{...d.scales.y,ticks:{color:'#64748b',callback:v=>'$'+v}}}}});
 
 new Chart(document.getElementById('weeklyChart'),{type:'line',data:{labels:['Mar 25','Apr 1','Apr 8','Apr 15','Apr 22','Apr 29','May 6','May 13','May 20'],datasets:[{label:'Leads (LA)',data:[1,4,3,2,0,3,3,null,null],borderColor:'#60a5fa',backgroundColor:'rgba(96,165,250,0.15)',fill:true,tension:0.3,pointRadius:4},{label:'CPL (LA ÷10)',data:[10.69,2.96,3.89,5.22,0,3.68,7.15,null,null],borderColor:'#4ade80',backgroundColor:'rgba(74,222,128,0.1)',fill:true,tension:0.3,pointRadius:4,borderDash:[4,4]}]},options:{...d}});
 
