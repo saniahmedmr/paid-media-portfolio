@@ -16,7 +16,7 @@
   .badge{display:inline-flex;gap:8px;align-items:center;background:#1e3a5f22;border:1px solid #1e40af;color:#60a5fa;padding:5px 14px;border-radius:20px;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;}
   h1{font-size:clamp(22px,4vw,40px);font-weight:700;color:#f1f5f9;margin-bottom:10px;}
   .hero-sub{color:#64748b;font-size:15px;margin-bottom:32px;max-width:700px;line-height:1.7;}
-  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;max-width:900px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;max-width:1000px;}
   .kpi{background:#111827;border:1px solid #1e293b;border-radius:12px;padding:18px;}
   .kpi-val{font-size:22px;font-weight:700;color:#38bdf8;}
   .kpi-lbl{font-size:11px;color:#64748b;margin-top:4px;}
@@ -118,8 +118,8 @@
     <div class="ss-card">
       <img src="assets/screenshots/Reading leads-cpl.jpeg" alt="Reading Foundation CPL trend" onclick="openModal(this.src)">
       <div class="ss-caption">
-        <strong>Leads Campaign | CA — CPL Optimization in Progress (Nov–Dec 2025)</strong>
-        Cost dropped from ~$400 at launch to under $100 by late December through audience refinement and creative testing. 7 ad sets, 46 ads tested. $126 blended average across the full learning period — the trend line tells the real story.
+        <strong>Leads Campaign | CA — CPL Optimization</strong>
+        Cost dropped from ~$400 at launch to under $100 through audience refinement and creative testing. 7 ad sets, 46 ads — the trend line tells the real story.
       </div>
     </div>
 
@@ -154,4 +154,8 @@ new Chart(document.getElementById('weeklyChart'),{type:'line',data:{labels:['Mar
 new Chart(document.getElementById('imprChart'),{type:'doughnut',data:{labels:['Canada (422K)','LA (58K)'],datasets:[{data:[422613,58370],backgroundColor:['rgba(167,139,250,0.8)','rgba(96,165,250,0.8)'],borderWidth:1}]},options:{plugins:d.plugins,cutout:'60%'}});
 
 function openModal(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('open');}
-function closeModal(){document.ge
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+</script>
+</body>
+</html>
+                               
